@@ -15,9 +15,9 @@ const _data = require('./lib/data');
 
 // Testing
 // TODO: test create a file
-// _data.create('test', 'newFile', {'foo': 'bar'}, (err) => {
-//     console.log('this was the error: ', err);
-// });
+_data.update('test', 'newFile', {'fizz': 'buzz'}, (err, data) => {
+    console.log('this was the error: ', err, 'and this was the data ', data);
+});
 
 // Instantiate the HTTP server
 const httpServer = http.createServer((req, res) => {
