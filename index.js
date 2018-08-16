@@ -10,6 +10,14 @@ const url = require('url');
 const StringDecoder = require('string_decoder').StringDecoder;
 const config = require('./config');
 const fs = require('fs');
+const _data = require('./lib/data');
+
+
+// Testing
+// TODO: test create a file
+// _data.create('test', 'newFile', {'foo': 'bar'}, (err) => {
+//     console.log('this was the error: ', err);
+// });
 
 // Instantiate the HTTP server
 const httpServer = http.createServer((req, res) => {
