@@ -12,6 +12,7 @@ const config = require('./config');
 const fs = require('fs');
 const handlers = require('./lib/handlers');
 const helpers = require('./lib/helpers');
+import models from './models/index';
 
 
 // Instantiate the HTTP server
