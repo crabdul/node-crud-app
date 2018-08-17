@@ -25,6 +25,19 @@ models.sequelize.sync().then(() => {
     httpServer.listen(config.httpPort, () => {
         console.log(`The server is listening on port ${config.httpPort}`);
     });
+
+    models.sequelize
+        .authenticate()
+        .then(() => {
+            console.log('Connection has been established successfully.');
+
+            models.user.findAll().then((user) => {
+                console.log(user);
+            });
+        })
+        .catch(err => {
+            console.error('Unable to connect to the database:', err);
+        });
 });
 
 
