@@ -12,7 +12,7 @@ const config = require('./config');
 const fs = require('fs');
 const handlers = require('./lib/handlers');
 const helpers = require('./lib/helpers');
-import models from './models/index';
+const models = require('./models');
 
 
 // Instantiate the HTTP server
@@ -20,10 +20,13 @@ const httpServer = http.createServer((req, res) => {
     unifiedServer(req, res);
 });
 
-// Start the server, and have it listen on port 3000
-httpServer.listen(config.httpPort, () => {
-    console.log(`The server is listening on port ${config.httpPort}`);
+models.sequelize.sync().then(() => {
+    // Start the server, and have it listen on port 3000
+    httpServer.listen(config.httpPort, () => {
+        console.log(`The server is listening on port ${config.httpPort}`);
+    });
 });
+
 
 // Instantiate the HTTPS server
 // const httpsServerOptions = {

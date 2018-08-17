@@ -1,9 +1,12 @@
-import Sequelize from "sequelize";
+const Sequelize = require("sequelize");
 
-const sequelize = new Sequelize('app', 'postgres', 'postgres');
+const sequelize = new Sequelize('app', 'postgres', 'postgres', {
+    host: 'localhost',
+    dialect: 'postgres'
+});
 
 const models = {
-    user: sequelize.import('./user'),
+    user: sequelize.import('./user.js'),
 };
 
 // Create associations between tables
@@ -16,4 +19,4 @@ Object.keys(models).forEach((modelName) => {
 models.sequelize = sequelize;
 models.Sequelize = Sequelize;
 
-export default models;
+module.exports = models;
