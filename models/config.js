@@ -1,23 +1,18 @@
-{
+const config = {
     development: {
-      username: "root",
-      password: null,
-      database: "database_development",
-      host: "127.0.0.1",
-      dialect: "mysql"
-    },
-    test: {
-      username: "root",
-      password: null,
-      database: "database_test",
-      host: "127.0.0.1",
-      dialect: "mysql"
+        username: "root",
+        password: null,
+        database: "node_course_database_development",
+        host: "localhost",
+        dialect: "postgres"
     },
     production: {
-      username: "root",
-      password: null,
-      database: "database_production",
-      host: "127.0.0.1",
-      dialect: "mysql"
+        username: "root",
+        password: null,
+        database: "node_course_database_production",
+        host: "localhost",
+        dialect: "postgres"
     }
-  }
+};
+
+module.exports = config;

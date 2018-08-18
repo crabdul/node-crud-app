@@ -1,9 +1,11 @@
 const Sequelize = require("sequelize");
+const config = require("./config");
 
-const sequelize = new Sequelize('node_course_app', 'postgres', 'postgres', {
-    host: 'localhost',
-    dialect: 'postgres'
-});
+
+// Provide fallback for NODE_ENV environment variable
+const env = process.env.NODE_ENV || 'development';
+
+const sequelize = new Sequelize('node_course_app', 'postgres', 'postgres', config[env]);
 
 const models = {
     user: sequelize.import('./user.js'),
